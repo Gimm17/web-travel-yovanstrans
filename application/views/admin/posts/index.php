@@ -6,6 +6,7 @@
     <h3>Daftar Artikel (<?= count($posts); ?>)</h3>
     <a href="<?= base_url('admin/posts/create'); ?>" class="btn-add"><i class="fas fa-plus"></i> Tambah Artikel</a>
   </div>
+  <div class="table-responsive">
   <table class="admin-table">
     <thead><tr><th>Cover</th><th>Judul</th><th>Kategori</th><th>Status</th><th>Views</th><th>Tanggal</th><th>Aksi</th></tr></thead>
     <tbody>
@@ -37,4 +38,5 @@
     <?php endif; ?>
     </tbody>
   </table>
+  </div>
 </div>

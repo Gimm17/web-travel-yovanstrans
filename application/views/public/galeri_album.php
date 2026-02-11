@@ -17,7 +17,7 @@
     <div class="gallery-grid">
       <?php foreach ($items as $item): ?>
       <div class="gallery-item">
-        <img src="<?= base_url('assets/uploads/' . $item->image); ?>" alt="<?= $item->caption ?: $album->title; ?>" loading="lazy">
+        <img src="<?= webp_url($item->image); ?>" alt="<?= $item->caption ?: $album->title; ?>" loading="lazy">
         <div class="gallery-item-overlay"><i class="fas fa-search-plus" style="color:var(--white);font-size:1.5rem;opacity:0"></i></div>
       </div>
       <?php endforeach; ?>

@@ -102,7 +102,7 @@
       <?php foreach ($classes as $cls): ?>
       <div class="fleet-card animate-on-scroll">
         <?php if ($cls->cover_image): ?>
-        <img src="<?= base_url('assets/uploads/' . $cls->cover_image); ?>" alt="<?= $cls->name; ?>" class="fleet-card-image">
+        <img src="<?= webp_url($cls->cover_image); ?>" alt="<?= $cls->name; ?>" class="fleet-card-image" loading="lazy">
         <?php else: ?>
         <div class="fleet-card-image" style="background:var(--gradient-blue);display:flex;align-items:center;justify-content:center;">
           <i class="fas fa-shuttle-van" style="font-size:3rem;color:var(--white)"></i>
@@ -196,7 +196,7 @@
       <?php foreach ($events as $ev): ?>
       <div class="card animate-on-scroll" style="overflow:hidden;border-radius:var(--radius-xl)">
         <?php if ($ev->cover_image): ?>
-        <img src="<?= base_url('assets/uploads/' . $ev->cover_image); ?>" alt="<?= $ev->title; ?>" style="width:100%;height:180px;object-fit:cover">
+        <img src="<?= webp_url($ev->cover_image); ?>" alt="<?= $ev->title; ?>" style="width:100%;height:180px;object-fit:cover" loading="lazy">
         <?php else: ?>
         <div style="height:180px;background:var(--gradient-yellow);display:flex;align-items:center;justify-content:center">
           <i class="fas fa-calendar-alt" style="font-size:3rem;color:var(--blue-900)"></i>
@@ -260,7 +260,7 @@
         <p class="testimonial-text"><?= $t->content; ?></p>
         <div style="display:flex;align-items:center;gap:.75rem;margin-top:1rem">
           <?php if (!empty($t->photo)): ?>
-          <img src="<?= base_url('assets/uploads/' . $t->photo); ?>" alt="<?= $t->name; ?>" style="width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid var(--yellow-400)">
+          <img src="<?= webp_url($t->photo); ?>" alt="<?= $t->name; ?>" style="width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid var(--yellow-400)" loading="lazy">
           <?php else: ?>
           <div style="width:44px;height:44px;border-radius:50%;background:var(--gradient-blue);display:flex;align-items:center;justify-content:center;color:var(--white);font-weight:700;font-size:1.1rem"><?= strtoupper(substr($t->name, 0, 1)); ?></div>
           <?php endif; ?>

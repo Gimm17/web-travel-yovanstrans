@@ -4,6 +4,7 @@
     <h3>Daftar Popup</h3>
     <a href="<?= base_url('admin/popups/create'); ?>" class="btn-add"><i class="fas fa-plus"></i> Tambah</a>
   </div>
+  <div class="table-responsive">
   <table class="admin-table">
     <thead><tr><th>Gambar</th><th>Judul</th><th>Tipe</th><th>Frekuensi</th><th>Status</th><th>Aksi</th></tr></thead>
     <tbody>
@@ -39,4 +40,5 @@
     <?php endforeach; endif; ?>
     </tbody>
   </table>
+  </div>
 </div>

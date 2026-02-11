@@ -19,7 +19,7 @@
       <?php foreach ($albums as $album): ?>
       <a href="<?= base_url('galeri/' . $album->slug); ?>" class="card animate-on-scroll" style="text-decoration:none;color:inherit">
         <?php if ($album->cover_image): ?>
-        <img src="<?= base_url('assets/uploads/' . $album->cover_image); ?>" alt="<?= $album->title; ?>" class="card-img">
+        <img src="<?= webp_url($album->cover_image); ?>" alt="<?= $album->title; ?>" class="card-img" loading="lazy">
         <?php else: ?>
         <div class="card-img" style="background:var(--gradient-blue);display:flex;align-items:center;justify-content:center">
           <i class="fas fa-images" style="font-size:2rem;color:var(--white)"></i>

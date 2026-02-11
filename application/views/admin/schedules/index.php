@@ -4,6 +4,7 @@
     <h3>Daftar Jadwal</h3>
     <a href="<?= base_url('admin/schedules/create'); ?>" class="btn-add"><i class="fas fa-plus"></i> Tambah</a>
   </div>
+  <div class="table-responsive">
   <table class="admin-table">
     <thead><tr><th>Rute</th><th>Kelas</th><th>Jam</th><th>Catatan</th><th>Status</th><th>Aksi</th></tr></thead>
     <tbody>
@@ -22,4 +23,5 @@
     <?php endforeach; ?>
     </tbody>
   </table>
+  </div>
 </div>

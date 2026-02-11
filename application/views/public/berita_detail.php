@@ -13,10 +13,10 @@
 <section class="section">
   <div class="container" style="max-width:800px">
     <?php if ($post->cover_image): ?>
-    <img src="<?= base_url('assets/uploads/' . $post->cover_image); ?>" alt="<?= $post->title; ?>" style="width:100%;border-radius:var(--radius-xl);margin-bottom:2rem">
+    <img src="<?= webp_url($post->cover_image); ?>" alt="<?= $post->title; ?>" style="width:100%;border-radius:var(--radius-xl);margin-bottom:2rem">
     <?php endif; ?>
     <div class="post-content" style="line-height:1.8;color:var(--gray-700);font-size:1rem">
-      <?= $post->content; ?>
+      <?= strip_tags($post->content, '<p><br><b><i><em><strong><u><ul><ol><li><a><h2><h3><h4><h5><h6><img><blockquote><table><thead><tbody><tr><th><td><figure><figcaption><div><span><hr><sub><sup>'); ?>
     </div>
     <div style="margin-top:2rem;display:flex;gap:1rem">
       <a href="<?= base_url('pesan-tiket'); ?>" class="btn btn-wa"><i class="fab fa-whatsapp"></i> Pesan Tiket</a>

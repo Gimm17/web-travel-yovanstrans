@@ -12,7 +12,7 @@
     <div class="animate-on-scroll">
       <?php if ($cls->cover_image): ?>
       <div style="border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow-lg);margin-bottom:2rem">
-        <img src="<?= base_url('assets/uploads/' . $cls->cover_image); ?>" alt="<?= $cls->name; ?>" style="width:100%;height:400px;object-fit:cover">
+        <img src="<?= webp_url($cls->cover_image); ?>" alt="<?= $cls->name; ?>" style="width:100%;height:400px;object-fit:cover">
       </div>
       <?php else: ?>
       <div style="background:var(--gradient-blue);border-radius:var(--radius-xl);height:300px;display:flex;align-items:center;justify-content:center;margin-bottom:2rem">
@@ -46,8 +46,8 @@
       <h3 style="font-weight:700;margin-bottom:.75rem;color:var(--blue-700)"><i class="fas fa-images"></i> Galeri Foto</h3>
       <div style="columns:3;column-gap:1rem;margin-bottom:2rem">
         <?php foreach ($photos as $p): ?>
-        <div style="break-inside:avoid;margin-bottom:1rem;border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-md);cursor:pointer" onclick="openLightbox('<?= base_url('assets/uploads/' . $p->image); ?>')">
-          <img src="<?= base_url('assets/uploads/' . $p->image); ?>" alt="<?= $p->caption ?: $cls->name; ?>" style="width:100%;height:auto;display:block;transition:transform .3s" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+        <div style="break-inside:avoid;margin-bottom:1rem;border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-md);cursor:pointer" onclick="openLightbox('<?= webp_url($p->image); ?>')">
+          <img src="<?= webp_url($p->image); ?>" alt="<?= $p->caption ?: $cls->name; ?>" style="width:100%;height:auto;display:block;transition:transform .3s" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" loading="lazy">
         </div>
         <?php endforeach; ?>
       </div>

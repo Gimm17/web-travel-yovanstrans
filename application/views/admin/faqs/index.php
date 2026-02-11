@@ -4,6 +4,7 @@
     <h3>Daftar FAQ</h3>
     <a href="<?= base_url('admin/faqs/create'); ?>" class="btn-add"><i class="fas fa-plus"></i> Tambah</a>
   </div>
+  <div class="table-responsive">
   <table class="admin-table">
     <thead><tr><th>Pertanyaan</th><th>Kategori</th><th>Status</th><th>Aksi</th></tr></thead>
     <tbody>
@@ -20,4 +21,5 @@
     <?php endforeach; ?>
     </tbody>
   </table>
+  </div>
 </div>

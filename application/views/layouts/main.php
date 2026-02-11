@@ -13,10 +13,13 @@
   <meta name="theme-color" content="#F5A623">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="<?= base_url('assets/css/style.css'); ?>">
-  <link rel="stylesheet" href="<?= base_url('assets/css/components.css'); ?>">
-  <link rel="stylesheet" href="<?= base_url('assets/css/pages.css'); ?>">
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+  <?php $v = '20260212'; ?>
+  <link rel="stylesheet" href="<?= base_url('assets/css/style.css'); ?>?v=<?= $v; ?>">
+  <link rel="stylesheet" href="<?= base_url('assets/css/components.css'); ?>?v=<?= $v; ?>">
+  <link rel="stylesheet" href="<?= base_url('assets/css/pages.css'); ?>?v=<?= $v; ?>">
 
 <!-- SEO: JSON-LD LocalBusiness Schema -->
 <script type="application/ld+json">
@@ -205,7 +208,7 @@
   $p_type = isset($popup->popup_type) ? $popup->popup_type : 'custom';
   $p_title = $popup->title;
   $p_content = $popup->content;
-  $p_image = $popup->image ? base_url('assets/uploads/' . $popup->image) : '';
+  $p_image = $popup->image ? webp_url($popup->image) : '';
   $p_cta_text = $popup->cta_text;
   $p_cta_url = $popup->cta_url;
   $p_category = '';
@@ -213,7 +216,7 @@
   if ($p_type !== 'custom' && !empty($popup->post_title)) {
       if (!$p_title) $p_title = $popup->post_title;
       if (!$p_content) $p_content = $popup->post_excerpt ? $popup->post_excerpt : mb_substr(strip_tags($popup->post_content), 0, 150) . '...';
-      if (!$p_image && $popup->post_image) $p_image = base_url('assets/uploads/' . $popup->post_image);
+      if (!$p_image && $popup->post_image) $p_image = webp_url($popup->post_image);
       if (!$p_cta_text) $p_cta_text = 'Baca Selengkapnya';
       if (!$p_cta_url && $popup->post_slug) $p_cta_url = base_url('berita/' . $popup->post_slug);
       $p_category = $p_type;
@@ -253,12 +256,13 @@
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('<?= base_url("sw.js"); ?>').catch(function(){});
 }
-// Page view tracking (1x per session only)
+// Page view tracking (1x per page per session)
 (function(){
   try {
-    if (sessionStorage.getItem('yt_viewed')) return; // already counted this session
     var path = window.location.pathname.replace(/^\/yovantrans\/?/, '').replace(/\/$/, '') || 'home';
     if (path.indexOf('admin') === 0) return;
+    var viewKey = 'yt_viewed:' + path;
+    if (sessionStorage.getItem(viewKey)) return; // already counted this page this session
     var fd = new FormData();
     fd.append('page', path);
     if (navigator.sendBeacon) {
@@ -266,7 +270,7 @@ if ('serviceWorker' in navigator) {
     } else {
       fetch('<?= base_url("api/track-view"); ?>', { method: 'POST', body: fd });
     }
-    sessionStorage.setItem('yt_viewed', '1');
+    sessionStorage.setItem(viewKey, '1');
   } catch(e) {}
 })();
 </script>

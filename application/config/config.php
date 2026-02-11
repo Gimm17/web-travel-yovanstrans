@@ -426,7 +426,7 @@ $config['csrf_token_name'] = 'csrf_test_name';
 $config['csrf_cookie_name'] = 'csrf_cookie_name';
 $config['csrf_expire'] = 7200;
 $config['csrf_regenerate'] = TRUE;
-$config['csrf_exclude_uris'] = array('api/track-wa', 'api/track_wa', 'api/submit-review', 'api/submit_review', 'api/track-view', 'api/track_view');
+$config['csrf_exclude_uris'] = array('api/track-wa', 'api/track_wa', 'api/submit-review', 'api/submit_review', 'api/track-view', 'api/track_view', 'api/import-content', 'api/import_content');
 
 /*
 |--------------------------------------------------------------------------
@@ -448,7 +448,7 @@ $config['csrf_exclude_uris'] = array('api/track-wa', 'api/track_wa', 'api/submit
 | by the output class.  Do not 'echo' any values with compression enabled.
 |
 */
-$config['compress_output'] = FALSE;
+$config['compress_output'] = TRUE;
 
 /*
 |--------------------------------------------------------------------------

@@ -79,16 +79,87 @@ class Api extends CI_Controller {
 
         $this->load->model('Page_view_model');
 
+        // Rate limit: max 30 views per minute per IP
+        $ip = $this->input->ip_address();
+        $cache_key = 'pv_rate_' . md5($ip);
+        $count = $this->cache_get($cache_key);
+        if ($count !== false && (int)$count >= 30) {
+            $this->output->set_status_header(429)
+                 ->set_output(json_encode(['success' => false, 'message' => 'Rate limited']));
+            return;
+        }
+        $this->cache_increment($cache_key, 60);
+
         $page = $this->input->post('page');
         if (empty($page)) $page = 'home';
 
         $this->Page_view_model->record(
             substr($page, 0, 100),
-            $this->input->ip_address(),
-            $this->input->user_agent(),
-            $this->input->server('HTTP_REFERER')
+            $ip,
+            substr($this->input->user_agent(), 0, 255),
+            substr($this->input->server('HTTP_REFERER') ?: '', 0, 500)
         );
 
         $this->output->set_output(json_encode(['success' => true]));
+    }
+
+    /**
+     * POST /api/import-content
+     * Fetches post data from a public Instagram URL (admin only)
+     */
+    public function import_content() {
+        $this->output->set_content_type('application/json');
+
+        // Admin-only endpoint
+        if (!$this->session->userdata('admin_logged_in')) {
+            $this->output->set_status_header(403)
+                 ->set_output(json_encode(['success' => false, 'message' => 'Unauthorized']));
+            return;
+        }
+
+        if ($this->input->method() !== 'post') {
+            $this->output->set_status_header(405)
+                 ->set_output(json_encode(['success' => false, 'message' => 'Method not allowed']));
+            return;
+        }
+
+        $url = trim($this->input->post('url'));
+        if (empty($url)) {
+            $this->output->set_output(json_encode([
+                'success' => false,
+                'message' => 'URL Instagram wajib diisi.'
+            ]));
+            return;
+        }
+
+        // Load the Instagram helper
+        $this->load->helper('instagram');
+
+        // Fetch post data
+        $result = ig_fetch_post($url);
+
+        $this->output->set_output(json_encode($result));
+    }
+
+    /**
+     * Simple file-based rate limit cache helpers
+     */
+    private function cache_get($key) {
+        $file = APPPATH . 'cache/' . $key;
+        if (!file_exists($file)) return false;
+        $data = @unserialize(file_get_contents($file));
+        if (!$data || $data['expires'] < time()) {
+            @unlink($file);
+            return false;
+        }
+        return $data['value'];
+    }
+
+    private function cache_increment($key, $ttl = 60) {
+        $file = APPPATH . 'cache/' . $key;
+        $val = $this->cache_get($key);
+        $count = ($val !== false) ? (int)$val + 1 : 1;
+        $data = serialize(['value' => $count, 'expires' => time() + $ttl]);
+        @file_put_contents($file, $data, LOCK_EX);
     }
 }

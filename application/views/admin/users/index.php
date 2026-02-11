@@ -4,6 +4,7 @@
     <h3>Daftar User (<?= count($users); ?>)</h3>
     <a href="<?= base_url('admin/users/create'); ?>" class="btn-add"><i class="fas fa-plus"></i> Tambah</a>
   </div>
+  <div class="table-responsive">
   <table class="admin-table">
     <thead><tr><th>Nama</th><th>Email</th><th>Role</th><th>Status</th><th>Aksi</th></tr></thead>
     <tbody>
@@ -21,4 +22,5 @@
     <?php endforeach; ?>
     </tbody>
   </table>
+  </div>
 </div>

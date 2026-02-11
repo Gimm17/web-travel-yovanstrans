@@ -14,7 +14,7 @@
       <div style="display:grid;grid-template-columns:1fr;gap:2rem;align-items:center" class="<?= $i % 2 ? '' : ''; ?>">
         <?php if ($cls->cover_image): ?>
         <div style="border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow-lg)">
-          <img src="<?= base_url('assets/uploads/' . $cls->cover_image); ?>" alt="<?= $cls->name; ?>" style="width:100%;height:300px;object-fit:cover">
+          <img src="<?= webp_url($cls->cover_image); ?>" alt="<?= $cls->name; ?>" style="width:100%;height:300px;object-fit:cover" loading="lazy">
         </div>
         <?php else: ?>
         <div style="background:var(--gradient-blue);border-radius:var(--radius-xl);height:300px;display:flex;align-items:center;justify-content:center">

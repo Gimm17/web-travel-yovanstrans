@@ -5,6 +5,7 @@
     <h3>Daftar Agen (<?= count($branches); ?>)</h3>
     <a href="<?= base_url('admin/branches/create'); ?>" class="btn-add"><i class="fas fa-plus"></i> Tambah Agen</a>
   </div>
+  <div class="table-responsive">
   <table class="admin-table">
     <thead><tr><th>Nama Agen</th><th>No. WhatsApp</th><th>Telepon</th><th>Jam Operasional</th><th>Urutan</th><th>Status</th><th>Aksi</th></tr></thead>
     <tbody>
@@ -27,4 +28,5 @@
     <?php endforeach; ?>
     </tbody>
   </table>
+  </div>
 </div>

@@ -4,6 +4,7 @@
     <h3>Daftar Event (<?= count($events); ?>)</h3>
     <a href="<?= base_url('admin/events/create'); ?>" class="btn-add"><i class="fas fa-plus"></i> Tambah</a>
   </div>
+  <div class="table-responsive">
   <table class="admin-table">
     <thead><tr><th>Cover</th><th>Judul</th><th>Tanggal</th><th>Lokasi</th><th>Status</th><th>Aksi</th></tr></thead>
     <tbody>
@@ -31,4 +32,5 @@
     <?php endforeach; endif; ?>
     </tbody>
   </table>
+  </div>
 </div>

@@ -60,6 +60,7 @@
     <h3>Artikel Terbaru</h3>
     <a href="<?= base_url('admin/posts'); ?>" class="btn-add"><i class="fas fa-newspaper"></i> Kelola</a>
   </div>
+  <div class="table-responsive">
   <table class="admin-table">
     <thead><tr><th>Judul</th><th>Kategori</th><th>Views</th><th>Tanggal</th></tr></thead>
     <tbody>
@@ -77,6 +78,7 @@
     <?php endif; ?>
     </tbody>
   </table>
+  </div>
 </div>
 
 <!-- Quick Links -->

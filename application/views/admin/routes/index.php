@@ -4,6 +4,7 @@
     <h3>Daftar Rute (<?= count($routes); ?>)</h3>
     <a href="<?= base_url('admin/routes/create'); ?>" class="btn-add"><i class="fas fa-plus"></i> Tambah</a>
   </div>
+  <div class="table-responsive">
   <table class="admin-table">
     <thead><tr><th>Asal</th><th>Tujuan</th><th>Jarak</th><th>Durasi</th><th>Status</th><th>Aksi</th></tr></thead>
     <tbody>
@@ -22,4 +23,5 @@
     <?php endforeach; ?>
     </tbody>
   </table>
+  </div>
 </div>

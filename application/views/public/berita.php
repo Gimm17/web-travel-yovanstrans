@@ -16,7 +16,7 @@
       <?php foreach ($posts as $post): ?>
       <div class="post-card animate-on-scroll">
         <?php if ($post->cover_image): ?>
-        <img src="<?= base_url('assets/uploads/' . $post->cover_image); ?>" alt="<?= $post->title; ?>" class="post-card-image" loading="lazy">
+        <img src="<?= webp_url($post->cover_image); ?>" alt="<?= $post->title; ?>" class="post-card-image" loading="lazy">
         <?php else: ?>
         <div class="post-card-image" style="background:var(--gradient-blue);display:flex;align-items:center;justify-content:center">
           <i class="fas fa-newspaper" style="font-size:2rem;color:var(--white)"></i>

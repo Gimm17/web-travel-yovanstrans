@@ -4,6 +4,7 @@
     <h3>Daftar Album</h3>
     <a href="<?= base_url('admin/galleries/create'); ?>" class="btn-add"><i class="fas fa-plus"></i> Tambah Album</a>
   </div>
+  <div class="table-responsive">
   <table class="admin-table">
     <thead><tr><th>Cover</th><th>Judul</th><th>Status</th><th>Aksi</th></tr></thead>
     <tbody>
@@ -21,4 +22,5 @@
     <?php endforeach; endif; ?>
     </tbody>
   </table>
+  </div>
 </div>

@@ -32,6 +32,7 @@
   <!-- Views per Page -->
   <div class="admin-card">
     <div class="admin-card-header"><h3><i class="fas fa-file-alt"></i> Views per Halaman</h3></div>
+    <div class="table-responsive">
     <table class="admin-table">
       <thead><tr><th>Halaman</th><th style="text-align:right">Views</th></tr></thead>
       <tbody>
@@ -43,11 +44,13 @@
       <?php endforeach; else: ?><tr><td colspan="2" style="text-align:center;color:var(--gray-400)">Belum ada data</td></tr><?php endif; ?>
       </tbody>
     </table>
+    </div>
   </div>
   <!-- WA Clicks per Page -->
   <div class="admin-card">
     <div class="admin-card-header"><h3><i class="fab fa-whatsapp"></i> Klik WA per Halaman</h3>
       <a href="<?= base_url('admin/export/csv/wa_clicks'); ?>" class="btn-add" style="font-size:.8rem"><i class="fas fa-download"></i> Export CSV</a></div>
+    <div class="table-responsive">
     <table class="admin-table">
       <thead><tr><th>Halaman</th><th style="text-align:right">Total</th></tr></thead>
       <tbody>
@@ -56,6 +59,7 @@
       <?php endforeach; else: ?><tr><td colspan="2" style="text-align:center;color:var(--gray-400)">Belum ada data</td></tr><?php endif; ?>
       </tbody>
     </table>
+    </div>
   </div>
 </div>
 
@@ -63,6 +67,7 @@
   <!-- Top Referrers -->
   <div class="admin-card">
     <div class="admin-card-header"><h3><i class="fas fa-external-link-alt"></i> Top Referrers</h3></div>
+    <div class="table-responsive">
     <table class="admin-table">
       <thead><tr><th>Sumber</th><th style="text-align:right">Views</th></tr></thead>
       <tbody>
@@ -74,10 +79,12 @@
       <?php endforeach; else: ?><tr><td colspan="2" style="text-align:center;color:var(--gray-400)">Belum ada data</td></tr><?php endif; ?>
       </tbody>
     </table>
+    </div>
   </div>
   <!-- WA Clicks per Agent -->
   <div class="admin-card">
     <div class="admin-card-header"><h3><i class="fas fa-user-tie"></i> Klik per Agen</h3></div>
+    <div class="table-responsive">
     <table class="admin-table">
       <thead><tr><th>No. WA Agen</th><th style="text-align:right">Total</th></tr></thead>
       <tbody>
@@ -86,6 +93,7 @@
       <?php endforeach; else: ?><tr><td colspan="2" style="text-align:center;color:var(--gray-400)">Belum ada data</td></tr><?php endif; ?>
       </tbody>
     </table>
+    </div>
   </div>
 </div>
 

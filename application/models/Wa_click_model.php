@@ -14,7 +14,12 @@ class Wa_click_model extends CI_Model {
     }
 
     public function get_today() {
-        return $this->db->where('DATE(clicked_at)', date('Y-m-d'))->count_all_results($this->table);
+        $today = date('Y-m-d');
+        $tomorrow = date('Y-m-d', strtotime('+1 day'));
+        return $this->db
+            ->where('clicked_at >=', $today)
+            ->where('clicked_at <', $tomorrow)
+            ->count_all_results($this->table);
     }
 
     public function get_stats_by_page($days = 30) {
@@ -36,9 +41,10 @@ class Wa_click_model extends CI_Model {
     }
 
     public function get_daily_stats($days = 30) {
+        $start = date('Y-m-d', strtotime("-{$days} days"));
         return $this->db
             ->select('DATE(clicked_at) as date, COUNT(*) as total')
-            ->where('clicked_at >=', date('Y-m-d', strtotime("-{$days} days")))
+            ->where('clicked_at >=', $start . ' 00:00:00')
             ->group_by('DATE(clicked_at)')
             ->order_by('date', 'ASC')
             ->get($this->table)->result();

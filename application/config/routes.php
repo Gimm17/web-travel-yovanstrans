@@ -29,6 +29,7 @@ $route['api/track-wa'] = 'api/track_wa';
 $route['api/schedules-by-route'] = 'api/schedules_by_route';
 $route['api/submit-review'] = 'api/submit_review';
 $route['api/track-view'] = 'api/track_view';
+$route['api/import-content'] = 'api/import_content';
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

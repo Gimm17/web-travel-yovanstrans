@@ -32,6 +32,11 @@ class Events extends CI_Controller {
                 if ($this->upload->do_upload('cover_image')) {
                     $insert['cover_image'] = $this->upload->data('file_name');
                 }
+            } elseif ($this->input->post('ig_cover_image')) {
+                $ig_file = $this->input->post('ig_cover_image');
+                if (file_exists('./assets/uploads/' . $ig_file)) {
+                    $insert['cover_image'] = $ig_file;
+                }
             }
             $this->Event_model->insert($insert);
             $this->session->set_flashdata('success', 'Event berhasil ditambahkan!');

@@ -4,6 +4,7 @@
     <h3>Daftar Kelas Armada (<?= count($classes); ?>)</h3>
     <a href="<?= base_url('admin/vehicle_classes/create'); ?>" class="btn-add"><i class="fas fa-plus"></i> Tambah Kelas</a>
   </div>
+  <div class="table-responsive">
   <table class="admin-table">
     <thead><tr><th>Cover</th><th>Nama Kelas</th><th>Kursi</th><th>Highlight</th><th>Fitur</th><th>Status</th><th>Aksi</th></tr></thead>
     <tbody>
@@ -34,4 +35,5 @@
     <?php endforeach; ?>
     </tbody>
   </table>
+  </div>
 </div>

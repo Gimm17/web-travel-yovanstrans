@@ -4,6 +4,7 @@
     <h3>Daftar Testimoni</h3>
     <a href="<?= base_url('admin/testimonials/create'); ?>" class="btn-add"><i class="fas fa-plus"></i> Tambah</a>
   </div>
+  <div class="table-responsive">
   <table class="admin-table">
     <thead><tr><th>Nama</th><th>Rute</th><th>Rating</th><th>Sumber</th><th>Status</th><th>Aksi</th></tr></thead>
     <tbody>
@@ -39,4 +40,5 @@
     <?php endforeach; ?>
     </tbody>
   </table>
+  </div>
 </div>
