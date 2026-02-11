@@ -1,0 +1,27 @@
+{
+	"name": "YovansTranss - Travel Terpercaya Sulawesi Tengah",
+	"short_name": "YovansTranss",
+	"description": "Layanan travel antar kota terpercaya di Sulawesi Tengah",
+	"start_url": "./",
+	"display": "standalone",
+	"background_color": "#0f172a",
+	"theme_color": "#1e40af",
+	"icons": [
+		{
+			"src": "./assets/img/icon-192.png",
+			"sizes": "192x192",
+			"type": "image/png"
+		},
+		{
+			"src": "./assets/img/icon-512.png",
+			"sizes": "512x512",
+			"type": "image/png"
+		},
+		{
+			"src": "./assets/img/icon-512.png",
+			"sizes": "512x512",
+			"type": "image/png",
+			"purpose": "maskable"
+		}
+	]
+}

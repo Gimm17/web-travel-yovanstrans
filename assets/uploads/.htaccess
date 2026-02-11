@@ -1,0 +1,25 @@
+# Deny execution of scripts in uploads directory
+<FilesMatch "\.(php|phtml|php3|php4|php5|php7|phps|pht|phar|shtml|cgi|pl|py)$">
+    Order Deny,Allow
+    Deny from all
+</FilesMatch>
+
+# Disable script execution
+<IfModule mod_php.c>
+    php_flag engine off
+</IfModule>
+<IfModule mod_php7.c>
+    php_flag engine off
+</IfModule>
+<IfModule mod_php8.c>
+    php_flag engine off
+</IfModule>
+
+# Extra: disable directory listing
+Options -Indexes -ExecCGI
+
+# Only allow safe file types
+<FilesMatch "\.(jpg|jpeg|png|gif|webp|svg|ico|pdf|mp4|webm)$">
+    Order Allow,Deny
+    Allow from all
+</FilesMatch>
