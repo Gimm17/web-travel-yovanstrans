@@ -1,10 +1,19 @@
-# Deny execution of scripts in uploads directory
-<FilesMatch "\.(php|phtml|php3|php4|php5|php7|phps|pht|phar|shtml|cgi|pl|py)$">
-    Order Deny,Allow
-    Deny from all
+# Hardening: Block PHP/script execution in uploads folder
+# Prevent uploaded files from being executed as scripts
+
+Options -Indexes -ExecCGI
+
+# Deny all PHP/script files
+<FilesMatch "\.(php|phtml|php3|php4|php5|phps|phar|sh|pl|py|cgi|asp|aspx|jsp)$">
+    Require all denied
 </FilesMatch>
 
-# Disable script execution
+# Only allow safe file types
+<FilesMatch "\.(jpg|jpeg|png|gif|webp|svg|ico|pdf|mp4|mp3|css|js|woff|woff2|ttf|eot)$">
+    Require all granted
+</FilesMatch>
+
+# Disable PHP engine entirely in this directory
 <IfModule mod_php.c>
     php_flag engine off
 </IfModule>
@@ -14,12 +23,3 @@
 <IfModule mod_php8.c>
     php_flag engine off
 </IfModule>
-
-# Extra: disable directory listing
-Options -Indexes -ExecCGI
-
-# Only allow safe file types
-<FilesMatch "\.(jpg|jpeg|png|gif|webp|svg|ico|pdf|mp4|webm)$">
-    Order Allow,Deny
-    Allow from all
-</FilesMatch>

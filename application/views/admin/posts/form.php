@@ -15,8 +15,7 @@
     </div>
     <div id="ig-import-body">
       <div style="margin-bottom:.5rem">
-        <textarea id="ig-input" class="form-control" rows="1" placeholder="Paste link Instagram atau embed code di sini..." style="font-size:.85rem;resize:vertical;min-height:38px"></textarea>
-        <script>document.getElementById('ig-input').addEventListener('input',function(){this.style.height='38px';this.style.height=this.scrollHeight+'px';});</script>
+        <input type="text" id="ig-input" class="form-control" placeholder="Paste link Instagram atau embed code di sini..." style="font-size:.85rem">
       </div>
       <div style="display:flex;align-items:center;justify-content:space-between;gap:.75rem;flex-wrap:wrap">
         <div style="flex:1;min-width:200px">

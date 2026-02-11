@@ -29,6 +29,19 @@ document.addEventListener("DOMContentLoaded", function () {
 	menuClose && menuClose.addEventListener("click", closeMenu);
 	menuOverlay && menuOverlay.addEventListener("click", closeMenu);
 
+	// === ESC Key — close menus, lightbox, popups ===
+	document.addEventListener("keydown", function (e) {
+		if (e.key === "Escape" || e.keyCode === 27) {
+			closeMenu();
+			if (typeof closeLightbox === "function") closeLightbox();
+			var popupOvl = document.querySelector(".popup-overlay.active");
+			if (popupOvl) popupOvl.classList.remove("active");
+			var reviewModal = document.getElementById("reviewModal");
+			if (reviewModal && reviewModal.style.display === "flex")
+				reviewModal.style.display = "none";
+		}
+	});
+
 	// === FAQ Accordion ===
 	document.querySelectorAll(".faq-question").forEach(function (btn) {
 		btn.addEventListener("click", function () {

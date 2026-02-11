@@ -425,6 +425,48 @@ textarea.form-control {
     margin-bottom: 1rem
 }
 
+@media (max-width: 480px) {
+    .popup-overlay {
+        padding: 1.5rem;
+        align-items: center
+    }
+
+    .popup-modal {
+        max-width: 85%;
+        max-height: 80vh;
+        overflow-y: auto;
+        border-radius: var(--radius-xl)
+    }
+
+    .popup-image {
+        width: 100%;
+        height: auto;
+        max-height: none;
+        object-fit: contain
+    }
+
+    .popup-body {
+        padding: .75rem 1rem
+    }
+
+    .popup-title {
+        font-size: .95rem;
+        margin-bottom: .5rem
+    }
+
+    .popup-text {
+        display: none
+    }
+
+    .popup-close {
+        width: 28px;
+        height: 28px;
+        font-size: 1rem;
+        top: .5rem;
+        right: .5rem
+    }
+}
+
 /* Page Header */
 .page-header {
     background: var(--gradient-hero);

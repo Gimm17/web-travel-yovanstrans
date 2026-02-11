@@ -513,3 +513,69 @@ textarea.form-control {
     background: var(--blue-500);
     color: var(--white);
 }
+
+/* === Responsive Admin Tables === */
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.table-responsive::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 30px;
+    background: linear-gradient(to left, rgba(255, 255, 255, 0.9), transparent);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity .3s;
+}
+
+.table-responsive.has-scroll::after {
+    opacity: 1;
+}
+
+.table-responsive .admin-table {
+    min-width: 700px;
+}
+
+@media (max-width: 768px) {
+
+    .admin-table th,
+    .admin-table td {
+        padding: 0.5rem 0.6rem;
+        font-size: 0.82rem;
+    }
+
+    .admin-table img {
+        width: 40px !important;
+        height: 28px !important;
+    }
+
+    .btn-edit,
+    .btn-delete,
+    .btn-sm {
+        min-width: 36px;
+        min-height: 36px;
+        padding: 0.3rem 0.5rem;
+        font-size: 0.78rem;
+    }
+
+    .admin-card {
+        padding: 1rem;
+    }
+
+    .admin-topbar h2 {
+        font-size: 1rem;
+    }
+
+    /* Stack action buttons vertically on mobile */
+    .admin-table td:last-child {
+        white-space: nowrap;
+    }
+}
