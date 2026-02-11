@@ -51,7 +51,7 @@
       <?php foreach ($photos as $p): ?>
       <div style="position:relative;border-radius:8px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.12)">
         <img src="<?= base_url('assets/uploads/' . $p->image); ?>" style="width:100%;height:90px;object-fit:cover">
-        <button type="button" onclick="confirmDelete('<?= base_url('admin/vehicleclasses/delete_photo/' . $p->id); ?>', 'Foto')" 
+        <button type="button" onclick="confirmDelete('<?= base_url('admin/vehicle_classes/delete_photo/' . $p->id); ?>', 'Foto')" 
           style="position:absolute;top:4px;right:4px;background:rgba(220,38,38,.9);color:#fff;border:none;border-radius:50%;width:24px;height:24px;cursor:pointer;font-size:.7rem;display:flex;align-items:center;justify-content:center">
           <i class="fas fa-times"></i>
         </button>
@@ -80,7 +80,7 @@
 
   <div style="display:flex;gap:1rem;margin-top:1rem">
     <button type="submit" class="btn-add"><i class="fas fa-save"></i> Simpan</button>
-    <a href="<?= base_url('admin/vehicleclasses'); ?>" class="btn-edit"><i class="fas fa-arrow-left"></i> Kembali</a>
+    <a href="<?= base_url('admin/vehicle_classes'); ?>" class="btn-edit"><i class="fas fa-arrow-left"></i> Kembali</a>
   </div>
 </form>
 </div></div>

@@ -2,7 +2,7 @@
 <div class="admin-card">
   <div class="admin-card-header">
     <h3>Daftar Kelas Armada (<?= count($classes); ?>)</h3>
-    <a href="<?= base_url('admin/vehicleclasses/create'); ?>" class="btn-add"><i class="fas fa-plus"></i> Tambah Kelas</a>
+    <a href="<?= base_url('admin/vehicle_classes/create'); ?>" class="btn-add"><i class="fas fa-plus"></i> Tambah Kelas</a>
   </div>
   <table class="admin-table">
     <thead><tr><th>Cover</th><th>Nama Kelas</th><th>Kursi</th><th>Highlight</th><th>Fitur</th><th>Status</th><th>Aksi</th></tr></thead>
@@ -27,8 +27,8 @@
       </td>
       <td><?= $c->is_active ? '<span class="badge badge-success">Aktif</span>' : '<span class="badge badge-danger">Nonaktif</span>'; ?></td>
       <td><div class="btn-actions">
-        <a href="<?= base_url('admin/vehicleclasses/edit/' . $c->id); ?>" class="btn-edit"><i class="fas fa-edit"></i></a>
-        <button onclick="confirmDelete('<?= base_url('admin/vehicleclasses/delete/' . $c->id); ?>', 'Kelas Armada')" class="btn-delete"><i class="fas fa-trash"></i></button>
+        <a href="<?= base_url('admin/vehicle_classes/edit/' . $c->id); ?>" class="btn-edit"><i class="fas fa-edit"></i></a>
+        <button onclick="confirmDelete('<?= base_url('admin/vehicle_classes/delete/' . $c->id); ?>', 'Kelas Armada')" class="btn-delete"><i class="fas fa-trash"></i></button>
       </div></td>
     </tr>
     <?php endforeach; ?>

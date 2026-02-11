@@ -45,7 +45,7 @@
     </a>
 
     <div class="admin-nav-label">Operasional</div>
-    <a href="<?= base_url('admin/vehicleclasses'); ?>" class="admin-nav-item <?= ($admin_page ?? '') == 'vehicle_classes' ? 'active' : ''; ?>">
+    <a href="<?= base_url('admin/vehicle_classes'); ?>" class="admin-nav-item <?= ($admin_page ?? '') == 'vehicle_classes' ? 'active' : ''; ?>">
       <i class="fas fa-bus"></i> Armada
     </a>
     <a href="<?= base_url('admin/routes'); ?>" class="admin-nav-item <?= ($admin_page ?? '') == 'routes' ? 'active' : ''; ?>">

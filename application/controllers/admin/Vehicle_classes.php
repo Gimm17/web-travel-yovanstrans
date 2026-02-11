@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class VehicleClasses extends CI_Controller {
+class Vehicle_classes extends CI_Controller {
     public function __construct() {
         parent::__construct();
         if (!$this->session->userdata('admin_logged_in')) redirect('admin/login');
@@ -38,7 +38,7 @@ class VehicleClasses extends CI_Controller {
                 'is_active'     => $this->input->post('is_active') ? 1 : 0,
             ]);
             $this->session->set_flashdata('success', 'Kelas armada berhasil ditambahkan!');
-            redirect('admin/vehicleclasses');
+            redirect('admin/vehicle_classes');
         }
         $data['admin_view'] = 'admin/vehicle_classes/form';
         $this->load->view('admin/layouts/main', $data);
@@ -78,7 +78,7 @@ class VehicleClasses extends CI_Controller {
             }
 
             $this->session->set_flashdata('success', 'Kelas armada berhasil diperbarui!');
-            redirect('admin/vehicleclasses');
+            redirect('admin/vehicle_classes');
         }
         $data['admin_view'] = 'admin/vehicle_classes/form';
         $this->load->view('admin/layouts/main', $data);
@@ -92,7 +92,7 @@ class VehicleClasses extends CI_Controller {
         }
         $this->Vehicle_class_model->delete($id);
         $this->session->set_flashdata('success', 'Kelas armada berhasil dihapus!');
-        redirect('admin/vehicleclasses');
+        redirect('admin/vehicle_classes');
     }
 
     public function delete_photo($photo_id) {
@@ -101,7 +101,7 @@ class VehicleClasses extends CI_Controller {
         $class_id = $photo->vehicle_class_id;
         $this->Vehicle_class_model->delete_photo($photo_id);
         $this->session->set_flashdata('success', 'Foto berhasil dihapus!');
-        redirect('admin/vehicleclasses/edit/' . $class_id);
+        redirect('admin/vehicle_classes/edit/' . $class_id);
     }
 
     // === Helper: Upload single image ===
