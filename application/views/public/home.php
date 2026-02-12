@@ -19,6 +19,14 @@
           <i class="fas fa-tags"></i> Lihat Harga
         </a>
       </div>
+      <div class="quick-chips mobile-only">
+        <a class="quick-chip" href="#harga"><i class="fas fa-tags"></i> Harga</a>
+        <a class="quick-chip" href="#armada"><i class="fas fa-bus"></i> Armada</a>
+        <a class="quick-chip" href="#fasilitas"><i class="fas fa-wifi"></i> Fasilitas</a>
+        <a class="quick-chip" href="#event"><i class="fas fa-bolt"></i> Promo</a>
+        <a class="quick-chip" href="#ulasan"><i class="fas fa-star"></i> Ulasan</a>
+        <a class="quick-chip" href="#agen"><i class="fas fa-map-marker-alt"></i> Agen</a>
+      </div>
       <div class="hero-stats">
         <div class="hero-stat">
           <div class="hero-stat-number">10+</div>
@@ -42,12 +50,12 @@
 </section>
 
 <!-- POPULAR ROUTES + PRICING -->
-<section class="section">
+<section class="section" id="harga">
   <div class="container">
     <h2 class="section-title">Rute &amp; Harga</h2>
     <p class="section-subtitle">Pilih rute perjalanan Anda dengan harga terjangkau</p>
     <div class="divider"></div>
-    <div class="grid grid-2">
+    <div class="grid grid-2 mobile-carousel">
       <?php foreach (array_slice($routes, 0, 4) as $route): ?>
       <div class="route-card animate-on-scroll">
         <div class="route-card-header">
@@ -93,12 +101,12 @@
 </section>
 
 <!-- KELAS ARMADA -->
-<section class="section section-gray">
+<section class="section section-gray" id="armada">
   <div class="container">
     <h2 class="section-title">Kelas Armada Kami</h2>
     <p class="section-subtitle">Pilih kelas sesuai kebutuhan perjalanan Anda</p>
     <div class="divider"></div>
-    <div class="grid grid-3">
+    <div class="grid grid-3 mobile-carousel">
       <?php foreach ($classes as $cls): ?>
       <div class="fleet-card animate-on-scroll">
         <?php if ($cls->cover_image): ?>
@@ -157,12 +165,12 @@
 </section>
 
 <!-- FASILITAS -->
-<section class="section">
+<section class="section" id="fasilitas">
   <div class="container">
     <h2 class="section-title">Fasilitas Lengkap</h2>
     <p class="section-subtitle">Perjalanan nyaman dengan fasilitas premium</p>
     <div class="divider"></div>
-    <div class="grid grid-4" style="text-align:center">
+    <div class="grid grid-4 mobile-grid-2" style="text-align:center">
       <?php
       $facilities = [
         ['icon' => 'fa-wifi', 'name' => 'Free WiFi'],
@@ -175,7 +183,7 @@
         ['icon' => 'fa-cookie-bite', 'name' => 'Snack*'],
       ];
       foreach ($facilities as $f): ?>
-      <div class="animate-on-scroll" style="padding:1.5rem;background:var(--white);border-radius:var(--radius-xl);box-shadow:var(--shadow-sm)">
+      <div class="animate-on-scroll" style="padding:1rem;background:var(--white);border-radius:var(--radius-xl);box-shadow:var(--shadow-sm)">
         <i class="fas <?= $f['icon']; ?>" style="font-size:2rem;color:var(--blue-500);margin-bottom:.75rem;display:block"></i>
         <strong style="font-size:.9rem"><?= $f['name']; ?></strong>
       </div>
@@ -187,18 +195,18 @@
 
 <!-- UPCOMING EVENTS -->
 <?php if (!empty($events)): ?>
-<section class="section section-dark">
+<section class="section section-dark" id="event">
   <div class="container">
     <h2 class="section-title" style="color:var(--white)">Event & Promo</h2>
     <p class="section-subtitle" style="color:var(--gray-300)">Jangan lewatkan event dan penawaran spesial</p>
     <div class="divider"></div>
-    <div class="grid grid-3">
+    <div class="grid grid-3 mobile-carousel">
       <?php foreach ($events as $ev): ?>
       <div class="card animate-on-scroll" style="overflow:hidden;border-radius:var(--radius-xl)">
         <?php if ($ev->cover_image): ?>
-        <img src="<?= webp_url($ev->cover_image); ?>" alt="<?= $ev->title; ?>" style="width:100%;height:180px;object-fit:cover" loading="lazy">
+        <img src="<?= webp_url($ev->cover_image); ?>" alt="<?= $ev->title; ?>" style="width:100%;height:160px;object-fit:cover" loading="lazy">
         <?php else: ?>
-        <div style="height:180px;background:var(--gradient-yellow);display:flex;align-items:center;justify-content:center">
+        <div style="height:160px;background:var(--gradient-yellow);display:flex;align-items:center;justify-content:center">
           <i class="fas fa-calendar-alt" style="font-size:3rem;color:var(--blue-900)"></i>
         </div>
         <?php endif; ?>
@@ -227,7 +235,7 @@
 
     <!-- Rating Summary Bar -->
     <?php if (!empty($review_stats) && $review_stats->total > 0): ?>
-    <div style="display:flex;align-items:center;justify-content:center;gap:1.5rem;margin-bottom:2rem;padding:1.25rem 2rem;background:var(--white);border-radius:var(--radius-xl);box-shadow:var(--shadow-md);flex-wrap:wrap">
+    <div style="display:flex;align-items:center;justify-content:center;gap:1.5rem;margin-bottom:1.25rem;padding:1rem 1.25rem;background:var(--white);border-radius:var(--radius-xl);box-shadow:var(--shadow-md);flex-wrap:wrap">
       <div style="text-align:center">
         <div style="font-size:2.5rem;font-weight:900;color:var(--blue-700);line-height:1"><?= $review_stats->avg_rating; ?></div>
         <div style="font-size:.85rem;color:var(--gray-500)">dari 5</div>
@@ -251,7 +259,7 @@
 
     <!-- Review Cards -->
     <?php if (!empty($testimonials)): ?>
-    <div class="grid grid-2">
+    <div class="grid grid-2 mobile-carousel">
       <?php foreach ($testimonials as $t): ?>
       <div class="testimonial-card animate-on-scroll">
         <div class="testimonial-stars">
@@ -389,12 +397,12 @@ document.getElementById('reviewModal').addEventListener('click', function(e) { i
 </script>
 
 <!-- LOKASI AGEN -->
-<section class="section">
+<section class="section" id="agen">
   <div class="container">
     <h2 class="section-title">Kantor Agen Kami</h2>
     <p class="section-subtitle">Tersedia di 3 kota untuk melayani Anda</p>
     <div class="divider"></div>
-    <div class="grid grid-3">
+    <div class="grid grid-3 mobile-carousel">
       <?php foreach ($branches as $b): ?>
       <div class="branch-card animate-on-scroll">
         <div class="branch-card-icon"><i class="fas fa-map-marker-alt"></i></div>

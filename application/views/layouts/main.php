@@ -3,11 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><?= isset($page_title) ? $page_title . ' — YovansTranss' : 'YovansTranss Shuttle — Palu Poso Tentena'; ?></title>
-  <meta name="description" content="<?= isset($page_desc) ? $page_desc : 'YovansTranss Shuttle - Layanan travel dan shuttle premium rute Palu, Poso, Tentena. Pemesanan mudah via WhatsApp.'; ?>">
-  <meta property="og:title" content="<?= isset($page_title) ? $page_title : 'YovansTranss Shuttle'; ?>">
+  <title><?= isset($page_title) ? $page_title . ' — YovansTrans' : 'YovansTrans Shuttle — Palu Poso Tentena'; ?></title>
+  <meta name="description" content="<?= isset($page_desc) ? $page_desc : 'YovansTrans Shuttle - Layanan travel dan shuttle premium rute Palu, Poso, Tentena. Pemesanan mudah via WhatsApp.'; ?>">
+  <meta property="og:title" content="<?= isset($page_title) ? $page_title : 'YovansTrans Shuttle'; ?>">
   <meta property="og:description" content="<?= isset($page_desc) ? $page_desc : 'Layanan travel shuttle premium Palu - Poso - Tentena'; ?>">
   <meta property="og:type" content="website">
+  <meta property="og:image" content="<?= base_url('assets/img/og-img.png'); ?>">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <!-- PWA -->
   <link rel="manifest" href="<?= base_url('manifest.json'); ?>">
   <meta name="theme-color" content="#F5A623">
@@ -26,7 +29,7 @@
 {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  "name": "YovansTranss Shuttle",
+  "name": "YovansTrans Shuttle",
   "description": "Layanan travel dan shuttle premium rute Palu - Poso - Tentena",
   "url": "<?= base_url(); ?>",
   "telephone": "+6282349085255",
@@ -56,7 +59,7 @@
   "startDate": "<?= $_ev->date_start; ?>",
   "endDate": "<?= $_ev->date_end; ?>",
   <?php if (!empty($_ev->location)): ?>"location": {"@type": "Place", "name": "<?= addslashes($_ev->location); ?>"},<?php endif; ?>
-  "organizer": {"@type": "Organization", "name": "YovansTranss Shuttle"}
+  "organizer": {"@type": "Organization", "name": "YovansTrans Shuttle"}
 }
 </script>
 <?php endforeach; endif; ?>
@@ -68,8 +71,8 @@
   "@type": "Article",
   "headline": "<?= addslashes($post->title); ?>",
   "datePublished": "<?= $post->published_at; ?>",
-  "author": {"@type": "Organization", "name": "YovansTranss"},
-  "publisher": {"@type": "Organization", "name": "YovansTranss"}
+  "author": {"@type": "Organization", "name": "YovansTrans"},
+  "publisher": {"@type": "Organization", "name": "YovansTrans"}
 }
 </script>
 <?php endif; ?>
@@ -93,6 +96,9 @@
       <a href="<?= base_url('berita'); ?>" class="<?= ($active_page ?? '') == 'berita' ? 'active' : ''; ?>">Berita</a>
       <a href="<?= base_url('pesan-tiket'); ?>" class="btn btn-yellow btn-sm">
         <i class="fab fa-whatsapp"></i> Pesan Tiket
+      </a>
+      <a href="<?= base_url('admin'); ?>" title="Login Admin" style="color:var(--gray-500);font-size:.85rem;margin-left:.5rem;opacity:.5;transition:opacity .2s" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='.5'">
+        <i class="fas fa-user-shield"></i>
       </a>
     </div>
     <button class="navbar-toggle" onclick="document.querySelector('.mobile-menu').classList.add('active');document.querySelector('.mobile-menu-overlay').classList.add('active')">
@@ -123,6 +129,9 @@
   </div>
   <div style="margin-top:2rem">
     <a href="<?= base_url('pesan-tiket'); ?>" class="btn btn-wa btn-block"><i class="fab fa-whatsapp"></i> Pesan via WhatsApp</a>
+  </div>
+  <div style="margin-top:auto;padding-top:1.5rem;text-align:center">
+    <a href="<?= base_url('admin'); ?>" style="color:var(--gray-500);font-size:.75rem;text-decoration:none"><i class="fas fa-lock" style="margin-right:.3rem"></i>Login Admin</a>
   </div>
 </div>
 
@@ -169,7 +178,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      &copy; <?= date('Y'); ?> YovansTranss Shuttle. All rights reserved.
+      &copy; <?= date('Y'); ?> YovansTrans Shuttle. All rights reserved.
     </div>
   </div>
 </footer>

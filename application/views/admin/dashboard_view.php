@@ -54,6 +54,26 @@
   </div>
 </div>
 
+<!-- Quick Links -->
+<div class="stats-grid quick-grid">
+  <a href="<?= base_url('admin/posts/create'); ?>" class="stat-card" style="text-decoration:none;color:inherit;cursor:pointer">
+    <div class="stat-card-icon yellow"><i class="fas fa-plus"></i></div>
+    <div><div class="stat-card-label" style="font-weight:700;color:var(--gray-800)">Artikel Baru</div></div>
+  </a>
+  <a href="<?= base_url('admin/analytics'); ?>" class="stat-card" style="text-decoration:none;color:inherit;cursor:pointer">
+    <div class="stat-card-icon red"><i class="fas fa-chart-pie"></i></div>
+    <div><div class="stat-card-label" style="font-weight:700;color:var(--gray-800)">Analytics</div></div>
+  </a>
+  <a href="<?= base_url('admin/galleries'); ?>" class="stat-card" style="text-decoration:none;color:inherit;cursor:pointer">
+    <div class="stat-card-icon blue"><i class="fas fa-images"></i></div>
+    <div><div class="stat-card-label" style="font-weight:700;color:var(--gray-800)">Kelola Galeri</div></div>
+  </a>
+  <a href="<?= base_url(); ?>" target="_blank" class="stat-card" style="text-decoration:none;color:inherit;cursor:pointer">
+    <div class="stat-card-icon green"><i class="fas fa-external-link-alt"></i></div>
+    <div><div class="stat-card-label" style="font-weight:700;color:var(--gray-800)">Lihat Website</div></div>
+  </a>
+</div>
+
 <!-- Recent Posts -->
 <div class="admin-card">
   <div class="admin-card-header">
@@ -81,22 +101,4 @@
   </div>
 </div>
 
-<!-- Quick Links -->
-<div class="stats-grid">
-  <a href="<?= base_url('admin/posts/create'); ?>" class="stat-card" style="text-decoration:none;color:inherit;cursor:pointer">
-    <div class="stat-card-icon yellow"><i class="fas fa-plus"></i></div>
-    <div><div class="stat-card-label" style="font-weight:700;color:var(--gray-800)">Artikel Baru</div></div>
-  </a>
-  <a href="<?= base_url('admin/analytics'); ?>" class="stat-card" style="text-decoration:none;color:inherit;cursor:pointer">
-    <div class="stat-card-icon red"><i class="fas fa-chart-pie"></i></div>
-    <div><div class="stat-card-label" style="font-weight:700;color:var(--gray-800)">Analytics</div></div>
-  </a>
-  <a href="<?= base_url('admin/galleries'); ?>" class="stat-card" style="text-decoration:none;color:inherit;cursor:pointer">
-    <div class="stat-card-icon blue"><i class="fas fa-images"></i></div>
-    <div><div class="stat-card-label" style="font-weight:700;color:var(--gray-800)">Kelola Galeri</div></div>
-  </a>
-  <a href="<?= base_url(); ?>" target="_blank" class="stat-card" style="text-decoration:none;color:inherit;cursor:pointer">
-    <div class="stat-card-icon green"><i class="fas fa-external-link-alt"></i></div>
-    <div><div class="stat-card-label" style="font-weight:700;color:var(--gray-800)">Lihat Website</div></div>
-  </a>
-</div>
+

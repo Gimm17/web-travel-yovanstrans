@@ -95,7 +95,7 @@
           </label>
         </div>
       </div>
-      <div style="display:flex;gap:1rem;margin-top:1rem">
+      <div class="admin-form-actions">
         <button type="submit" class="btn-add"><i class="fas fa-save"></i> Simpan</button>
         <a href="<?= base_url('admin/posts'); ?>" class="btn-edit"><i class="fas fa-arrow-left"></i> Kembali</a>
       </div>

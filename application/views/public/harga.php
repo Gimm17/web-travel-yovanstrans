@@ -20,7 +20,12 @@
           <div class="price-card-seats"><?= $group->seat_count; ?> Kursi</div>
         </div>
         <div class="price-card-body">
-          <?php foreach ($group->items as $p): ?>
+          <?php
+             $allItems = $group->items;
+             $visibleItems = array_slice($allItems, 0, 4);
+             $hiddenItems = array_slice($allItems, 4);
+          ?>
+          <?php foreach ($visibleItems as $p): ?>
           <div class="price-card-item">
             <span class="price-card-route"><?= $p->origin; ?> → <?= $p->destination; ?></span>
             <span>
@@ -34,6 +39,27 @@
             </span>
           </div>
           <?php endforeach; ?>
+          <?php if (!empty($hiddenItems)): ?>
+          <details class="price-more">
+            <summary>Lihat <?= count($hiddenItems); ?> rute lainnya</summary>
+            <div class="price-more-body">
+              <?php foreach ($hiddenItems as $p): ?>
+          <div class="price-card-item">
+            <span class="price-card-route"><?= $p->origin; ?> → <?= $p->destination; ?></span>
+            <span>
+              <?php if ($p->promo_price && $p->promo_start <= date('Y-m-d') && $p->promo_end >= date('Y-m-d')): ?>
+              <span style="text-decoration:line-through;color:var(--gray-400);font-size:.8rem"><?= format_price($p->price); ?></span><br>
+              <span class="price-card-amount price-card-promo"><?= format_price($p->promo_price); ?></span>
+              <span class="badge-promo" style="font-size:.6rem">PROMO</span>
+              <?php else: ?>
+              <span class="price-card-amount"><?= format_price($p->price); ?></span>
+              <?php endif; ?>
+            </span>
+          </div>
+          <?php endforeach; ?>
+            </div>
+          </details>
+          <?php endif; ?>
         </div>
         <div style="padding:0 1.5rem 1.5rem">
           <a href="<?= base_url('pesan-tiket'); ?>" class="btn btn-wa btn-sm btn-block"><i class="fab fa-whatsapp"></i> Pesan Kelas Ini</a>

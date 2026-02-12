@@ -9,7 +9,7 @@
 
 <section class="section">
   <div class="container">
-    <div class="grid grid-3">
+    <div class="grid grid-3 mobile-carousel">
       <?php foreach ($branches as $b): ?>
       <div class="branch-card animate-on-scroll">
         <div class="branch-card-icon"><i class="fas fa-map-marker-alt"></i></div>

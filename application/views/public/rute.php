@@ -28,7 +28,13 @@
         <?php endif; ?>
       </div>
       <?php if (!empty($route->schedules)): ?>
-      <table class="schedule-table" style="margin-top:1rem">
+      <details class="schedule-accordion">
+        <summary>
+          <span><i class="fas fa-clock"></i> Jadwal Keberangkatan</span>
+          <span style="font-weight:600;color:var(--gray-500);font-size:.85rem"><?= count($route->schedules); ?> jadwal</span>
+        </summary>
+        <div class="schedule-body">
+          <table class="schedule-table">
         <thead><tr><th>Jam Berangkat</th><th>Kelas</th><th>Keterangan</th></tr></thead>
         <tbody>
         <?php foreach ($route->schedules as $s): ?>
@@ -40,6 +46,8 @@
         <?php endforeach; ?>
         </tbody>
       </table>
+        </div>
+      </details>
       <?php endif; ?>
       <div style="margin-top:1rem">
         <a href="<?= base_url('pesan-tiket'); ?>" class="btn btn-wa btn-sm"><i class="fab fa-whatsapp"></i> Pesan Rute Ini</a>

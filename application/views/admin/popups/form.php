@@ -51,13 +51,13 @@
     </div>
   </div>
 
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
+  <div class="admin-grid-2">
     <div class="form-group"><label class="form-label">Tombol CTA</label><input type="text" name="cta_text" class="form-control" value="<?= isset($popup) ? $popup->cta_text : ''; ?>" placeholder="Pesan Sekarang"></div>
     <div class="form-group"><label class="form-label">URL CTA</label><input type="text" name="cta_url" class="form-control" value="<?= isset($popup) ? $popup->cta_url : ''; ?>" placeholder="https://...">
       <div class="form-hint">Untuk artikel: kosongkan agar otomatis link ke detail</div>
     </div>
   </div>
-  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem">
+  <div class="admin-grid-3">
     <div class="form-group"><label class="form-label">Frekuensi</label>
       <select name="frequency" class="form-control">
         <option value="once_per_day" <?= isset($popup) && $popup->frequency == 'once_per_day' ? 'selected' : ''; ?>>1x per hari</option>
@@ -69,7 +69,7 @@
     <div class="form-group"><label class="form-label">Berakhir</label><input type="datetime-local" name="date_end" class="form-control" value="<?= isset($popup) && $popup->date_end ? date('Y-m-d\TH:i', strtotime($popup->date_end)) : ''; ?>"></div>
   </div>
   <div class="form-group"><label style="display:flex;align-items:center;gap:.5rem;cursor:pointer"><input type="checkbox" name="is_active" value="1" <?= !isset($popup) || $popup->is_active ? 'checked' : ''; ?>> Aktif</label></div>
-  <div style="display:flex;gap:1rem;margin-top:1rem">
+  <div class="admin-form-actions">
     <button type="submit" class="btn-add"><i class="fas fa-save"></i> Simpan</button>
     <a href="<?= base_url('admin/popups'); ?>" class="btn-edit"><i class="fas fa-arrow-left"></i> Kembali</a>
   </div>

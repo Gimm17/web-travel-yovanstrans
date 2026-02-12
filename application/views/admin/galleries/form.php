@@ -8,11 +8,11 @@
     <?php if (isset($album) && $album->cover_image): ?><div style="margin-bottom:.5rem"><img src="<?= base_url('assets/uploads/' . $album->cover_image); ?>" style="width:150px;border-radius:var(--radius-md)"></div><?php endif; ?>
     <input type="file" name="cover_image" class="form-control" accept="image/*">
   </div>
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
+  <div class="admin-grid-2">
     <div class="form-group"><label class="form-label">Urutan</label><input type="number" name="sort_order" class="form-control" value="<?= isset($album) ? $album->sort_order : 0; ?>"></div>
     <div class="form-group"><label style="display:flex;align-items:center;gap:.5rem;margin-top:2rem;cursor:pointer"><input type="checkbox" name="is_active" value="1" <?= !isset($album) || $album->is_active ? 'checked' : ''; ?>> Aktif</label></div>
   </div>
-  <div style="display:flex;gap:1rem;margin-top:1rem">
+  <div class="admin-form-actions">
     <button type="submit" class="btn-add"><i class="fas fa-save"></i> Simpan</button>
     <a href="<?= base_url('admin/galleries'); ?>" class="btn-edit"><i class="fas fa-arrow-left"></i> Kembali</a>
   </div>

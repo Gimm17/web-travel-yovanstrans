@@ -6,7 +6,7 @@
     <input type="text" name="name" class="form-control" value="<?= isset($class) ? $class->name : ''; ?>" placeholder="Contoh: Executive Class" required>
   </div>
   
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
+  <div class="admin-grid-2">
     <div class="form-group">
       <label class="form-label">Jumlah Kursi</label>
       <input type="number" name="seat_count" class="form-control" value="<?= isset($class) ? $class->seat_count : ''; ?>" required>
@@ -66,7 +66,7 @@
   </div>
   <?php endif; ?>
 
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
+  <div class="admin-grid-2">
     <div class="form-group">
       <label class="form-label">Urutan Tampil</label>
       <input type="number" name="sort_order" class="form-control" value="<?= isset($class) ? $class->sort_order : 0; ?>">
@@ -78,7 +78,7 @@
     </div>
   </div>
 
-  <div style="display:flex;gap:1rem;margin-top:1rem">
+  <div class="admin-form-actions">
     <button type="submit" class="btn-add"><i class="fas fa-save"></i> Simpan</button>
     <a href="<?= base_url('admin/vehicle_classes'); ?>" class="btn-edit"><i class="fas fa-arrow-left"></i> Kembali</a>
   </div>

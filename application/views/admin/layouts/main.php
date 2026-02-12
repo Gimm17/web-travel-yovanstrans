@@ -208,6 +208,37 @@ function confirmLogout(url) {
 }
 
 // Global Save Confirmation
+
+// Responsive table helpers: add data-labels for mobile card mode + detect horizontal overflow
+function initAdminResponsiveTables() {
+  document.querySelectorAll('.admin-table').forEach(function(table){
+    var headers = Array.from(table.querySelectorAll('thead th')).map(function(th){
+      return (th.textContent || '').trim();
+    });
+    table.querySelectorAll('tbody tr').forEach(function(tr){
+      Array.from(tr.children).forEach(function(cell, idx){
+        if (cell && cell.tagName && cell.tagName.toLowerCase() === 'td') {
+          if (!cell.getAttribute('data-label')) {
+            cell.setAttribute('data-label', headers[idx] || '');
+          }
+        }
+      });
+    });
+  });
+
+  document.querySelectorAll('.table-responsive').forEach(function(wrap){
+    var check = function(){
+      var has = wrap.scrollWidth > wrap.clientWidth + 2;
+      wrap.classList.toggle('has-scroll', has);
+    };
+    check();
+    wrap.addEventListener('scroll', check);
+    window.addEventListener('resize', check);
+  });
+}
+
+document.addEventListener('DOMContentLoaded', initAdminResponsiveTables);
+
 function confirmSave(form) {
   Swal.fire({
     title: 'Simpan data?',

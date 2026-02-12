@@ -28,7 +28,7 @@
   <div style="padding:1.5rem"><canvas id="waChart" height="200"></canvas></div>
 </div>
 
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:1.5rem">
+<div class="admin-grid-2-lg">
   <!-- Views per Page -->
   <div class="admin-card">
     <div class="admin-card-header"><h3><i class="fas fa-file-alt"></i> Views per Halaman</h3></div>
@@ -63,7 +63,7 @@
   </div>
 </div>
 
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:1.5rem">
+<div class="admin-grid-2-lg">
   <!-- Top Referrers -->
   <div class="admin-card">
     <div class="admin-card-header"><h3><i class="fas fa-external-link-alt"></i> Top Referrers</h3></div>
